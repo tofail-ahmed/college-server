@@ -101,14 +101,15 @@ async function run() {
                   const id = req.params.id;
                   // console.log("update", id);
                   const body = req.body;
-                  // console.log(body);
-                  const { name, email, phone } = body;
+                  console.log(body);
+                  const { phone, subject, address, college } = body;
                   const filter = { _id: new ObjectId(id) }
                   const updateDoc = {
                         $set: {
-                              name,
-                              email,
-                              phone
+                              phone, 
+                              subject, 
+                              address, 
+                              college 
                         }
                   }
                   // console.log("update", updateDoc);
