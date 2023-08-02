@@ -91,7 +91,7 @@ async function run() {
                   const id = req.params.id;
                  
                   const query = { _id: new ObjectId(id) };
-                  // console.log(query);
+
                   const result = await usersCollection.findOne(query);
                   res.send(result);
 
@@ -139,6 +139,9 @@ run().catch(console.dir);
 
 app.get('/', async (req, res) => {
       res.send("college server is running")
+})
+app.get('/test', async (req, res) => {
+      res.send("college server is testing")
 })
 
 
