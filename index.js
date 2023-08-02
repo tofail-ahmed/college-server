@@ -35,6 +35,8 @@ async function run() {
 
             const collegesCollection = client.db("collegeDB").collection("college")
             const usersCollection = client.db("collegeDB").collection("user")
+            const reviewssCollection = client.db("collegeDB").collection("review")
+            const gallerysCollection = client.db("collegeDB").collection("gallery")
 
 
             app.get('/colleges', async (req, res) => {
@@ -114,6 +116,15 @@ async function run() {
                   }
                   // console.log("update", updateDoc);
                   const result = await usersCollection.updateOne(filter, updateDoc)
+                  res.send(result)
+            })
+            app.get('/reviews', async (req, res) => {
+                  const result = await reviewssCollection.find().toArray();
+                  res.send(result)
+            })
+            
+            app.get('/gallerys', async (req, res) => {
+                  const result = await gallerysCollection.find().toArray();
                   res.send(result)
             })
 
